@@ -20,7 +20,5 @@ public class EncodingFilter implements Filter {
     @Override
     public void destroy() {
         System.out.println("filter销毁");
-        System.out.println("dddd");
-        System.out.println("33333333333");
     }
 }
