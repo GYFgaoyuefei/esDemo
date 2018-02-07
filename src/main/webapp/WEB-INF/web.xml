@@ -1,0 +1,44 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <!--定义了WEB应用的名字-->
+  <display-name>esDemo</display-name>
+
+  <!--声明WEB应用的描述信息-->
+  <description>ES数据库学习demo</description>
+
+  <!--context-param元素声明应用范围内的初始化参数-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:*</param-value>
+  </context-param>
+
+<!--过滤器元素将一个名字与一个实现javax.servlet.Filter接口的类相关联-->
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>com.run.filter.EncodingFilter</filter-class>
+  </filter>
+
+  <!--一旦命名了一个过滤器，就要利用filter-mapping元素把它与一个或多个servlet或JSP页面相关联-->
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--servlet API的版本2.3增加了对事件监听程序的支持，事件监听程序在建立、修改和删除会话或servlet环境时得到通知。
+           Listener元素指出事件监听程序类-->
+  <!--<listener></listener>-->
+
+
+  <servlet>
+    <servlet-name>startUpServlet</servlet-name>
+    <servlet-class>com.run.servlet.StartUpServlet</servlet-class>
+    <load-on-startup>1000</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>startUpServlet</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
+</web-app>
